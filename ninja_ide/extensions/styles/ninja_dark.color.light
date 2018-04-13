@@ -1,0 +1,51 @@
+{
+    "name": "Ninja Dark",
+    "editor.background": "#1d1f21",
+    "editor.foreground": "#d5d8d6",
+    "editor.selection.background": "#1d545c",
+    "editor.selection.foreground": "#bec0c2",
+    "editor.sidebar.background": "#1d1f21",
+    "editor.sidebar.foreground": "#595959",
+    "colors": [
+        {
+            "scope": "keyword",
+            "color": "#83c1fb"
+        },
+        {
+            "scope": "number",
+            "color": "#f8a008"
+        },
+        {
+            "scope": "builtin",
+            "color": "#ee8859"
+        },
+        {
+            "scope": "comment",
+            "color": "#7c7c7c"
+        },
+        {
+            "scope": "decorator",
+            "color": "#fdb269"
+        },
+        {
+            "scope": "single.quoted.string",
+            "color": "#d07cd3"
+        },
+        {
+            "scope": "double.quoted.string",
+            "color": "#d07cd3"
+        },
+        {
+            "scope": "triple.single.quoted.string",
+            "color": "#86d986"
+        },
+        {
+            "scope": "triple.double.quoted.string",
+            "color": "#86d986"
+        },
+        {
+            "scope": "self",
+            "color": "#6ec7d7"
+        }
+    ]
+}

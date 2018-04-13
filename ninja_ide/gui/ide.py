@@ -57,13 +57,14 @@ from ninja_ide.gui.editor import neditable
 from ninja_ide.gui.explorer import nproject
 from ninja_ide.gui.dialogs import about_ninja
 from ninja_ide.gui.dialogs import unsaved_files
-# from ninja_ide.gui.dialogs import schemes_manager
-# from ninja_ide.gui.dialogs import language_manager
+from ninja_ide.gui.dialogs import schemes_manager
+from ninja_ide.gui.dialogs import plugins_store
+#from ninja_ide.gui.dialogs import language_manager
 from ninja_ide.gui.dialogs import session_manager
 from ninja_ide.gui.dialogs.preferences import preferences
 # from ninja_ide.gui.dialogs import traceback_widget
 # from ninja_ide.gui.dialogs import python_detect_dialog
-# from ninja_ide.gui.dialogs import plugins_store
+ #from ninja_ide.gui.dialogs import plugins_store
 from ninja_ide.tools import ui_tools
 # from ninja_ide.tools.completion import completion_daemon
 
@@ -844,11 +845,12 @@ class IDE(QMainWindow):
     def show_plugins_store(self):
         """Open the Plugins Manager to install/uninstall plugins."""
         store = plugins_store.PluginsStore(self)
-        main_container = IDE.get_service("main_container")
-        if main_container:
-            main_container.show_dialog(store)
-        else:
-            store.show()
+        store.show()
+       # main_container = IDE.get_service("main_container")
+        #if main_container:
+         #   main_container.show_dialog(store)
+        #else:
+         #   store.show()
 
     def show_languages(self):
         """Open the Language Manager to install/uninstall languages."""

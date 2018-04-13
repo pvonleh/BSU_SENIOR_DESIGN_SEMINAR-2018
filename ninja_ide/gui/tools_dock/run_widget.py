@@ -337,6 +337,10 @@ class RunWidget(QWidget):
             # TODO: Remove the IF statment and use Handlers
             if extension == "py":
                 self.start_process(filename=file_path)
+            # Run .c file
+            # added this module
+            if extension == "c":
+            	self.start_process(filename=file_path)
 
     def execute_selection(self):
         """Execute selected text or current line if not have a selection"""

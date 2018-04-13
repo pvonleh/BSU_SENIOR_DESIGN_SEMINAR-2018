@@ -29,6 +29,8 @@ __url__ = "http://www.ninja-ide.org"
 __source__ = "https://github.com/ninja-ide/ninja-ide"
 __version__ = "3.0-alpha"
 __license__ = "GPL3"
+__pluginsstore__ = "http://www.ninja-ide.org/plugins/"
+__schemes__ = "http://ninja-ide.org/schemes/"
 
 ###############################################################################
 # DOC
