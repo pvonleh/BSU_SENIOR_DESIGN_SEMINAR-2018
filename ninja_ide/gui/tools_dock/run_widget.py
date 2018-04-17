@@ -16,6 +16,10 @@
 # along with NINJA-IDE; If not, see <http://www.gnu.org/licenses/>.
 
 import re
+import os
+import subprocess
+from subprocess import Popen, PIPE
+import time
 
 from PyQt5.QtWidgets import QPlainTextEdit
 from PyQt5.QtWidgets import QTabWidget
@@ -306,7 +310,7 @@ class RunWidget(QWidget):
         self._tabs.removeTab(tab_index)
         # Close process and delete OutputWidget
         program.main_process.close()
-        program.outputw.deleteLater()
+        #program.outputw.deleteLater()
         del program.outputw
 
         if self._tabs.count() == 0:
@@ -337,10 +341,74 @@ class RunWidget(QWidget):
             # TODO: Remove the IF statment and use Handlers
             if extension == "py":
                 self.start_process(filename=file_path)
-            # Run .c file
+            elif extension =="java":
+                if os.name=='posix':
+                    self.RunMacJavaProgram(file_path)#thats where my code starts see the RunJavProgram Function below
+                elif os.name=='nt':
+                    self.runWindowsJavaProgram(file_path)
+
+            '''# Run .c file
             # added this module
             if extension == "c":
-            	self.start_process(filename=file_path)
+            	self.start_process(filename=file_path)'''
+    def runWindowsJavaProgram(self,file_path):
+        from subprocess import Popen, CREATE_NEW_CONSOLE
+        CompileProgramCommand="javac "+file_path
+        file_path2=""
+        path=file_manager.get_file_name(file_path)#getting the path
+        new_path=file_manager.get_file_name(file_path)#getting the path
+        new_path=new_path.split('/')#getting just the filename from the path
+        print(new_path)
+        file_name=new_path[len(new_path)-1]#the last item string in the list i created above is the file name
+        for i in range(0,len(new_path)-1):
+           file_path2=file_path2+'/'+new_path[i]#recreating th path since i messed it up above
+           file_path3=file_path2[1:]
+
+        os.chdir(file_path3)#pointing os to our directory in order to find files
+
+        if os.path.isfile(path+'.class'):
+            os.remove(path+'.class')#if file was previously compiled then we delete so we can recompile
+        procToCompile = subprocess.Popen(CompileProgramCommand,stdout=subprocess.PIPE,stderr=subprocess.PIPE, shell=True)
+        out,err=procToCompile.communicate()
+        runProgramCommand="java "#+file_name# command to run java code
+        javaProgram=Program()#created a program object, check Program class, the next two lines prvent the program from breaking
+                    #when we close a tab
+        self.__programs.append(javaProgram)
+        index = self.__programs.index(javaProgram)
+        error=err.decode("utf-8")#in case we couldnt compile then we output the error to user
+        outputw = OutputWidget(error)
+        self.add_tab(outputw, "java")#adding tab to see error
+        #we running th file  if it was compile
+        procToRun= subprocess.Popen([runProgramCommand, file_name], creationflags = subprocess.CREATE_NEW_CONSOLE)
+
+
+
+    def RunMacJavaProgram(self,file_path):
+        CompileProgramCommand="javac "+file_path
+        file_path2=""
+        path=file_manager.get_file_name(file_path)#getting the path
+        new_path=file_manager.get_file_name(file_path)#getting the path
+        new_path=new_path.split('/')#getting just the filename from the path
+        file_name=new_path[len(new_path)-1]#the last item string in the list i created above is the file name
+        for i in range(0,len(new_path)-1):
+           file_path2=file_path2+'/'+new_path[i]#recreating th path since i messed it up above
+
+        os.chdir(file_path2)#pointing os to our directory in order to find files
+
+        if os.path.isfile(path+'.class'):
+            os.remove(path+'.class')#if file was previously compiled then we delete so we can recompile
+        procToCompile = subprocess.Popen(CompileProgramCommand,stdout=subprocess.PIPE,stderr=subprocess.PIPE, shell=True)
+        out,err=procToCompile.communicate()
+        runProgramCommand="java "+file_name# command to run java code
+        javaProgram=Program()#created a program object, check Program class, the next two lines prvent the program from breaking
+                    #when we close a tab
+        self.__programs.append(javaProgram)
+        index = self.__programs.index(javaProgram)
+        error=err.decode("utf-8")#in case we couldnt compile then we output the error to user
+        outputw = OutputWidget(error)
+        self.add_tab(outputw, "java")#adding tab to see error
+        procToRun=subprocess.Popen(['xterm','+hold','-e',runProgramCommand])#we running th file  if it was compile
+
 
     def execute_selection(self):
         """Execute selected text or current line if not have a selection"""
