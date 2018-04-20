@@ -1,0 +1,60 @@
+{
+    "name": "Dark",
+    "stylesheet": "ninja_dark",
+    "palette": {
+        "Window": "#141517",
+        "WindowText": "#ffffff",
+        "WindowTextDisabled": "#7f7f7f",
+        "Base": "#161719",
+        "AlternateBase": "#424242",
+        "ToolTipBase": "#161719",
+        "ToolTipText": "#ffffff",
+        "Text": "#ffffff",
+        "TextDisabled": "#7f7f7f",
+        "Dark": "#252526",
+        "Shadow": "#141414",
+        "Button": "#2e3135",
+        "ButtonText": "#ffffff",
+        "ButtonTextDisabled": "#7f7f7f",
+        "BrightText": "#ff0000",
+        "Link": "#2a82da",
+        "Light": "#494949",
+        "Midlight": "#353535",
+        "Mid": "#444444",
+        "Highlight": "#F44336",
+        "HighlightInactive": "#F44336",
+        "HighlightDisabled": "#505050",
+        "HighlightedText": "#ffffff",
+        "HighlightedTextDisabled": "#7f7f7f"
+    },
+    "qml": {
+        "LocatorBackground": "#444444",
+        "LocatorLineEdit": "#232729",
+        "LocatorText": "#ffffff",
+        "LocatorCurrentItem": "#303538",
+        "LocatorListView": "#232729",
+        "LocatorAlternativeText": "#9c9e9e",
+
+        "StartPageBackground": "#161719",
+        "StartPageText": "#ffffff",
+        "StartPageAlternativeText": "#FF5644",
+        "StartPageLink": "#FF5644",
+
+        "FilesHandlerBackground": "#444444",
+        "FilesHandlerInput": "#232729",
+        "FilesHandlerText": "#ffffff",
+        "FilesHandlerCurrentItem": "#303538",
+        "FilesHandlerListView": "#232729",
+        "FilesHandlerAlternativeText": "#9c9e9e",
+
+        "FileFolderBackground": "#444444",
+        "FileFolderText": "#ffffff",
+        "FileFolderLineEdit": "#232729",
+
+        "SplitAssistantBackground": "#000000",
+        "SplitAssistantHighlight": "#303538",
+        "SplitAssistantText": "#ffffff",
+
+        "RectangleBorder": "#141414"
+    }
+}
