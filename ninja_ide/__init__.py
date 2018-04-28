@@ -30,7 +30,13 @@ __source__ = "https://github.com/ninja-ide/ninja-ide"
 __version__ = "3.0-alpha"
 __license__ = "GPL3"
 __pluginsstore__ = "http://www.ninja-ide.org/plugins/"
+__bsu__ = "https://github.com/pvonleh/BSU_SENIOR_DESIGN_SEMINAR-2018"
 __schemes__ = "http://ninja-ide.org/schemes/"
+
+__snippets__ = "http://www.ninja-ide.org/media/plugin_files/snippets.zip"
+__ipython__ = "http://www.ninja-ide.org/media/plugin_files/IPython_plugin_0.15.zip"
+__ppaste__ = "http://www.ninja-ide.org/media/plugin_files/ppaste_1.zip"
+__kai__ = "http://www.ninja-ide.org/media/plugin_files/kai-0.2.1.zip"
 
 ###############################################################################
 # DOC
